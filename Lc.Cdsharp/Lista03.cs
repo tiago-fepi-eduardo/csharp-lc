@@ -6,30 +6,30 @@ namespace Lc.Csharp.Modulo1
 {
     class Lista03
     {
-        static void Main()
-        {
-            Exercicio1();
+        //static void Main()
+        //{
+        //    Exercicio1();
 
-            Exercicio2();
+        //    Exercicio2();
 
-            Exercicio3();
+        //    Exercicio3();
 
-            Exercicio4();
+        //    Exercicio4();
 
-            Exercicio5();
+        //    Exercicio5();
 
-            Exercicio6();
+        //    Exercicio6();
 
-            Exercicio7();
+        //    Exercicio7();
 
-            Exercicio8();
+        //    Exercicio8();
 
-            Exercicio9();
+        //    Exercicio9();
 
-            Exercicio10(); 
+        //    Exercicio10(); 
 
-            Console.Read();   
-        }
+        //    Console.Read();   
+        //}
 
         public static void Exercicio1()
         {
