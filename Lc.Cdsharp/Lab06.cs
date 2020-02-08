@@ -11,41 +11,41 @@ namespace Lc.Csharp.Modulo1
     {
         //static void Main()
         //{
-        //    //int[] a = { 0, 1 };
-        //    //int b = a[3];
+            //int[] a = { 0, 1 };
+            //int b = a[3];
 
 
-        //    //int[] a = { 0, 1 };
-        //    //try
-        //    //{
-        //    //    int b = a[3];
-        //    //}
-        //    //catch (Exception e)
-        //    //{
-        //    //    Console.WriteLine("Caught an exception -> \n {0}\n {1}\n\n", e.Message, e.StackTrace);
-        //    //}
+            //int[] a = { 0, 1 };
+            //try
+            //{
+            //    int b = a[3];
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine("Caught an exception -> \n {0}\n {1}\n\n", e.Message, e.StackTrace);
+            //}
 
 
 
-        //    //try
-        //    //{
-        //    //    int zero = 0;
-        //    //    int a = 5 / zero;     //causa DivideByZeroException
-        //    //    int[] b = { 1, 2 };
-        //    //    a = b[3];             //causa IndexOutOfRangeException
-        //    //}
-        //    //catch (DivideByZeroException dz)
-        //    //{
-        //    //    Console.WriteLine("Got a DivideByZeroException: { 0}", dz);
-        //    //}
-        //    //catch (IndexOutOfRangeException ir)
-        //    //{
-        //    //    Console.WriteLine("Got a IndexOutOfRangeException: { 0}", ir);
-        //    //}
-        //    //catch (Exception e)
-        //    //{
-        //    //    Console.WriteLine("Got an exception: { 0}", e);
-        //    //}
+            //try
+            //{
+            //    int zero = 0;
+            //    int a = 5 / zero;     //causa DivideByZeroException
+            //    int[] b = { 1, 2 };
+            //    a = b[3];             //causa IndexOutOfRangeException
+            //}
+            //catch (DivideByZeroException dz)
+            //{
+            //    Console.WriteLine("Got a DivideByZeroException: { 0}", dz);
+            //}
+            //catch (IndexOutOfRangeException ir)
+            //{
+            //    Console.WriteLine("Got a IndexOutOfRangeException: { 0}", ir);
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine("Got an exception: { 0}", e);
+            //}
 
 
 
@@ -68,7 +68,7 @@ namespace Lc.Csharp.Modulo1
         //        //throw (e); //RE-THROWING
         //        //throw new Exception(String.Format(“\n\nError Code:{0}\n Exception: {1}”, e.ErrorCode, e), e); //INNER EXCEPTION	
         //    }
-                       
+
         //    Console.ReadLine();
         //}
     }

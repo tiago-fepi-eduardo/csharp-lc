@@ -9,8 +9,75 @@ namespace Lc.Cdsharp
 
         //static void Main()
         //{
-        //    Console.WriteLine("success");
-        //    Console.Read();
+        //    Console.WriteLine("Iniciando programa!");
+
+        //    /*            
+        //    int numero = 100;
+        //    long numeroL = 100;
+        //    bool ok = true;
+        //    char letra = 't';
+        //    double valorD = 1.123;
+        //    decimal dinheiro = 1.123M;
+        //    float valorF = 1.123F;
+
+        //    Console.WriteLine("Minha impressao: " + texto);
+        //    Console.WriteLine("Minha impressao: " + numeroL);
+        //    Console.WriteLine("Minha impressao: " + numero);
+        //    Console.WriteLine("Minha impressao: " + letra);
+        //    Console.WriteLine("Minha impressao: " + valorD);
+        //    Console.WriteLine("Minha impressao: " + valorF);
+        //    Console.WriteLine("Minha impressao: " + ok);
+        //    Console.WriteLine("Minha impressao: " + dinheiro);
+    
+        //    // Concatenacao de string
+        //    string texto1 = "Ola";
+        //    string texto2 = "Tiago";
+        //    string concatenado = texto1 + " / " + texto2;
+        //    Console.WriteLine("Concat = " + concatenado);
+
+        //    // Soma
+        //    int num1 = 100;
+        //    int num2 = 50;
+        //    int result = num1 + num2;
+        //    string res = Convert.ToString(num1 + num2);
+            
+        //    Console.WriteLine("Soma = " + result);
+        //    Console.WriteLine("Soma e transforma = " + res);
+    
+        //    // Conversao inteiros
+        //    string num3 = "1";
+        //    string num4 = "2";
+        //    string resultado = num3 + num4;
+        //    int resultadoInt = Convert.ToInt32(num3) + Convert.ToInt32(num4);
+        //    Console.WriteLine("Concate = " + resultado);
+        //    Console.WriteLine("Convert str -> int = " + resultadoInt);
+        //    */
+
+        //    //CultureInfo culture = new CultureInfo("en-US");
+
+        //    //DateTime dateTime = DateTime.Now.AddDays(1);
+        //    //DateTime dateTimeManual = new DateTime(1990, 01, 01, 20, 10, 34);
+
+        //    //Console.WriteLine("Horario atual: " + dateTime.ToString(culture));
+        //    //Console.WriteLine("Horario atual: " + dateTime.ToShortDateString());
+        //    //Console.WriteLine("Horario atual: " + dateTime.ToShortTimeString());
+        //    //Console.WriteLine("Horario atual: " + dateTimeManual);
+
+        //    double num1 = 10;
+
+        //    double pot = Math.Pow(num1, 2);
+        //    double raiz = Math.Sqrt(num1);
+        //    double cub = Math.Cbrt(num1);
+        //    double max = Math.Max(1, 100);
+        //    double min = Math.Min(1, 100);
+        //    double round = Math.Round(1.34567, 2);
+
+        //    Console.WriteLine(pot);
+        //    Console.WriteLine(raiz);
+        //    Console.WriteLine(cub);
+        //    Console.WriteLine(max);
+        //    Console.WriteLine(min);
+        //    Console.WriteLine(round);
         //}
 
         //static void Main(string[] args)
