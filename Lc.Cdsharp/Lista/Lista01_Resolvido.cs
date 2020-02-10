@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lc.Csharp.Modulo1.Lista
 {
-    class Lista1_resolvido
+    class Lista01_Resolvido
     {
         /*
         static void Main()

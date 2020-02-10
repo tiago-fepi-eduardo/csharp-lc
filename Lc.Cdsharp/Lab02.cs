@@ -6,77 +6,77 @@ namespace Lc.Csharp.Modulo1
 {
     class Lab02
     {
-        static void Main()
-        {
-            //Metodo void sem parametro
-            ExecutarVetores();
+        //static void Main()
+        //{
+        //    //Metodo void sem parametro
+        //    ExecutarVetores();
 
-            //Metodo com retorno mas sem parametro
-            Console.WriteLine(AcionarSemafaro());
+        //    //Metodo com retorno mas sem parametro
+        //    Console.WriteLine(AcionarSemafaro());
 
-            //Metodo com parametro mas sem retorno
-            int[] numeros = { 1, 2, 3, 4, 5 };
-            ExecutarForEach(numeros);
+        //    //Metodo com parametro mas sem retorno
+        //    int[] numeros = { 1, 2, 3, 4, 5 };
+        //    ExecutarForEach(numeros);
             
-            //Metodo com retorno e com parametro
-            Console.WriteLine(AcionarSemafaroV2("AMARELO"));
+        //    //Metodo com retorno e com parametro
+        //    Console.WriteLine(AcionarSemafaroV2("AMARELO"));
 
-            //Acessando Classes
-            Pessoa pessoa1 = new Pessoa();
-            pessoa1.idade = 25;
-            pessoa1.Nome = "Adao";
-            pessoa1.ImprimirIdentidade();
+        //    //Acessando Classes
+        //    Pessoa pessoa1 = new Pessoa();
+        //    pessoa1.idade = 25;
+        //    pessoa1.Nome = "Adao";
+        //    pessoa1.ImprimirIdentidade();
 
-            Pessoa pessoa2 = new Pessoa();
-            pessoa2.idade = 20;
-            pessoa2.Nome = "Eva";
-            pessoa2.ImprimirIdentidade();
+        //    Pessoa pessoa2 = new Pessoa();
+        //    pessoa2.idade = 20;
+        //    pessoa2.Nome = "Eva";
+        //    pessoa2.ImprimirIdentidade();
 
-            //Acessando classe static
-            double resultado = Calculo.Delta(2, 3, 5);
-            Console.WriteLine("Delta e: " + resultado);
+        //    //Acessando classe static
+        //    double resultado = Calculo.Delta(2, 3, 5);
+        //    Console.WriteLine("Delta e: " + resultado);
 
 
 
-            /*
-            ///////WHILE
+        //    /*
+        //    ///////WHILE
             
-            int cont = 0;
-            bool status = true;
-            while (status)
-            {
-                Console.WriteLine("True");
+        //    int cont = 0;
+        //    bool status = true;
+        //    while (status)
+        //    {
+        //        Console.WriteLine("True");
 
-                if (cont == 5)
-                    status = false;
-                else
-                    cont++;
-            }
-
-
-            ////////DO
-            int cont = 0;
-            bool status = true;
-            do
-            {
-                Console.WriteLine("True");
-
-                if (cont == 5)
-                    status = false;
-                else
-                    cont++;
-            } while (status);
+        //        if (cont == 5)
+        //            status = false;
+        //        else
+        //            cont++;
+        //    }
 
 
-            ////////FOR
-            int[] numeros = { 1, 2, 3, 4 };
-            string[] cidades = { "Santa Rita", "Campinas", "Varginha", "Sao Tome das Letras" };
-            for (int i = 0; i < numeros.Length; i++)
-            {
-                Console.WriteLine("indice=" + i + " Valor=" + numeros[i]);
-            }
-            */
-        }
+        //    ////////DO
+        //    int cont = 0;
+        //    bool status = true;
+        //    do
+        //    {
+        //        Console.WriteLine("True");
+
+        //        if (cont == 5)
+        //            status = false;
+        //        else
+        //            cont++;
+        //    } while (status);
+
+
+        //    ////////FOR
+        //    int[] numeros = { 1, 2, 3, 4 };
+        //    string[] cidades = { "Santa Rita", "Campinas", "Varginha", "Sao Tome das Letras" };
+        //    for (int i = 0; i < numeros.Length; i++)
+        //    {
+        //        Console.WriteLine("indice=" + i + " Valor=" + numeros[i]);
+        //    }
+        //    */
+        //}
 
         static void ExecutarVetores()
         {
