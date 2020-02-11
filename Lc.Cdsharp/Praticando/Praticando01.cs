@@ -4,14 +4,32 @@ using System.Text;
 
 namespace Lc.Csharp.Modulo1
 {
-    class Praticando01
+    public class Praticando01
     {
-        //static void Main()
+        //public static void Main()
         //{
-        //    Exercicio1();
+        //    //Exercicio1();
 
-        //    Exercicio2();  
+        //    //Exercicio2();
         //}
+
+        #region Guardar
+        public static void Teste()
+        {
+            Console.WriteLine("Digite x: ");
+            int x = Convert.ToInt32(Console.ReadLine());
+
+            while (x > 10)
+            {
+                Console.WriteLine("Digite x: ");
+                x = Convert.ToInt32(Console.ReadLine());
+            }
+
+            for (int i = 0; i < x; i++)
+            {
+                Console.WriteLine("Hello World!");
+            }
+        }
 
         public static void Exercicio1()
         {
@@ -51,10 +69,13 @@ namespace Lc.Csharp.Modulo1
                 novos[i] = numeros[i] / 10;
             }
 
-            foreach (int numero in numeros)
+            foreach (int novo in novos)
             {
-                Console.WriteLine(numero);
+                Console.WriteLine(novo);
             }
         }
+
+        #endregion
     }
+
 }

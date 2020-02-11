@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace Lc.Csharp.Modulo1.Praticando
@@ -9,26 +10,19 @@ namespace Lc.Csharp.Modulo1.Praticando
         static void Main()
         {
             Console.WriteLine("-------CONTAS CRIADAS");
-            ContaBancaria contaBancaria = new ContaBancaria();
-            contaBancaria.nome = "Joaquin Phenix";
-            contaBancaria.cpf = 0152020000;
-            contaBancaria.email = "killthebatman@gotham.us";
-            contaBancaria.Saldo = 10.00;
+
+            #region ContaBancaria
+
+            ContaBancaria contaBancaria = new ContaBancaria(1,"Joaquim", 0124, "mail", 10);
             contaBancaria.ImprimirFicha();
 
-            ContaBancaria contaBancaria2 = new ContaBancaria();
-            contaBancaria2.nome = "Bart Simpson";
-            contaBancaria2.cpf = 333320000;
-            contaBancaria2.email = "skate@destroy.us";
-            contaBancaria2.Saldo = 10.00;
+            ContaBancaria contaBancaria2 = new ContaBancaria(2,"Emma", 013334, "mail", 10);
             contaBancaria2.ImprimirFicha();
 
-            ContaBancaria contaBancaria3 = new ContaBancaria();
-            contaBancaria3.nome = "Monica";
-            contaBancaria3.cpf = 321456987;
-            contaBancaria3.email = "lovehabbit@melancia.com";
-            contaBancaria3.Saldo = 10.00;
+            ContaBancaria contaBancaria3 = new ContaBancaria(3,"Bart", 01223, "mail", 10);
             contaBancaria3.ImprimirFicha();
+
+            #endregion
 
             //Investindo
             contaBancaria.Saldo = Investimento.Investimento01(12, contaBancaria.Saldo);
@@ -44,36 +38,79 @@ namespace Lc.Csharp.Modulo1.Praticando
             Console.WriteLine();
             Console.WriteLine();
         }
+
+        static void Method()
+        {
+            string variavel = "main";
+        }
     }
 
     class ContaBancaria
     {
-        public string nome;
-        public int cpf;
-        public string email;
-        public double Saldo;
+        public readonly double Id;
+        
+        public string nome { get; set; }
+        public int cpf { get; set; }
+        public string email { get; set; }
+
+        private double saldo;
+        public double Saldo
+        {
+            get
+            {
+                return saldo;
+            }
+            set
+            {
+                saldo = value;
+            }
+        }
+
+        public ContaBancaria(int i)
+        {
+        }
+        public ContaBancaria(long i)
+        {
+        }
+
+
+        public ContaBancaria(double id, string n, int c, string e, double s)
+        {
+            Id = id;
+            nome = n;
+            cpf = c;
+            email = e;
+            saldo = s;
+        }
 
         public void ImprimirFicha()
         {
-            Console.WriteLine($"\nNome: {nome} \nCPF: {cpf} \nE-mail: {email} \nSaldo: {Saldo.ToString("C")}");
+            Imprimir();
+        }
+
+        private void Imprimir()
+        {
+            Console.WriteLine($"\nNome:{nome} \nCPF: {cpf} \nE-mail: {email} \nSaldo: {saldo.ToString("C")}");
         }
     }
 
-    public static class Investimento
+    static class Investimento
     {
+        public const double alicota = 1.1;
+
         public static double Investimento01(int prazo, double valor)
         {
-            return valor * prazo * 1.4;
+            return valor * prazo * alicota;
         }
 
         public static double Investimento02(int prazo, double valor)
         {
-            return valor * prazo * 1.3;
+            return valor * prazo * alicota;
         }
 
         public static double Investimento03(int prazo, double valor)
         {
-            return valor * prazo * 1.2;
+            return valor * prazo * alicota;
         }
     }
 }
