@@ -4,26 +4,15 @@ using System.Text;
 
 namespace Lc.Csharp.Modulo1.Lab04
 {
-    public class Animal
+    class Animal
     {
-        public readonly string Especie;
-        private string Nome;
+        public string Especie;
+        public string Nome;
         public int Idade;
 
-        public Animal(string especie, string nome)
+        public void Alimentar()
         {
-            Especie = especie;
-            Nome = nome;
-        }
-
-        public string GetNome()
-        {
-            return Nome;
-        }
-
-        public void Alimentar(object alimento)
-        {
-            Console.WriteLine("Alimentado!");
+            Console.WriteLine("Nhame!");
         }
     }
 }
