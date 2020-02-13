@@ -3,29 +3,60 @@ using System.Text;
 
 namespace Aula4
 {
-    class Lista2
+    class General
     {
-        //static void Main(string[] args)
-        //{
-            //string guid = Guid.NewGuid().ToString();
+        static void Main(string[] args)
+        {
+            // Gerando GUID. Id unico
+            string guid = Guid.NewGuid().ToString();
 
-            //StringBuilder str = new StringBuilder();
-            //str.Append("");
+            // Utilizando stringbuilder para montar textos longos
+            StringBuilder str = new StringBuilder();
+            str.Append("1 - Inserir");
+            str.Append("\n2 - Imprimir");
+            str.Append("\n3 - Sair");
 
-            //DateTime.Now;
+            // Gerando numeros aleatorios inteiros ou fracinados.
+            int numberInteiro = new Random().Next(0, 2);
+            double number = numberInteiro + new Random().NextDouble();
+            Console.WriteLine("\nInteiro= " + numberInteiro);
+            Console.WriteLine("Fracao= " + number);
 
-            //int numberInteiro = new Random().Next(0, 2);
-            //double number = numberInteiro + new Random().NextDouble();
+            // Vetor de classes. Criando uma lista para armazenar carros.           
+            Carro[] listaDeCarros = new Carro[3];
 
-            //Console.WriteLine("\n inteiro= " + numberInteiro);
-            //Console.WriteLine("\n fracao= " + number);
+            // Criando um carro
+            Carro carro1 = new Carro();
+            carro1.Modelo = "Monza";
 
-            //array complexo
-            //menu usando do
-            //validando itens nulo
-                        
+            Carro carro2 = new Carro();
+            carro2.Modelo = "Corolla";
 
-        //    Console.ReadLine();
-        //}
+            Carro carro3 = new Carro();
+            carro3.Modelo = "Gol";
+
+            // Armazenando meus carros na minha lista de carros.
+            listaDeCarros[0] = carro1;
+            listaDeCarros[1] = carro2;
+            listaDeCarros[2] = carro3;
+
+            // Imprimindo minha lista e todos os carros dentro.
+            foreach (Carro carro in listaDeCarros)
+            {
+                Console.WriteLine("\nMeu carro = " + carro.Modelo);
+                carro.Acelerar();
+            }
+
+            Console.Read();
+        }
+    }
+
+    class Carro
+    {
+        public string Modelo { get; set; }
+        public void Acelerar()
+        {
+            Console.WriteLine("Vrummm!");
+        }
     }
 }
