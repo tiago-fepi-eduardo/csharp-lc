@@ -24,17 +24,17 @@ namespace Lc.Csharp.Modulo1.Lab04
         //    //cachorro.Alimentar();
         //    cachorro.Latir();
 
-            
+
         //    //Polimorfismo
 
         //    //gatos = cachorro;
         //    //cachorro = gatos;
-            
+
         //    Animal animal = new Animal();
         //    //animal = cachorro;
         //    //animal = gatos;
         //    //var teste = (Gatos)animal;
-           
+
         //    //gatos = animal;
         //    //cachorro = animal;
 
