@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Aula4
 {
-    class General
+    class HelperClasses
     {
         //static void Main(string[] args)
         //{

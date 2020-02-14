@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lc.Csharp.Modulo1.Lab04
+namespace Lc.Csharp.Modulo1.Heranca
 {
     class Cachorro : Animal
     {

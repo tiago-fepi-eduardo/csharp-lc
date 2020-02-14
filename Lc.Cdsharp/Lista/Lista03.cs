@@ -6,24 +6,24 @@ namespace Lc.Csharp.Modulo1
 {
     class lista03
     {
-        static void Main()
-        {
-            Time time = new Time("Flamengo", 25, "Futebol Feminino");
+        //static void Main()
+        //{
+        //    Time time = new Time("Flamengo", 25, "Futebol Feminino");
 
-            time.Imprimir();
+        //    time.Imprimir();
 
-            Console.WriteLine("\n::Contratou");
-            time.Contratar(1);
+        //    Console.WriteLine("\n::Contratou");
+        //    time.Contratar(1);
 
-            time.Imprimir();
+        //    time.Imprimir();
 
-            time.SetQuantidadeJogador(DepartamentoMedico.LesionarJogador(time.GetQuantidadeJogador()));
+        //    time.SetQuantidadeJogador(DepartamentoMedico.LesionarJogador(time.GetQuantidadeJogador()));
 
-            Console.WriteLine("\n::Lesionou");
-            time.Imprimir();
+        //    Console.WriteLine("\n::Lesionou");
+        //    time.Imprimir();
 
-            Console.ReadLine();
-        }
+        //    Console.ReadLine();
+        //}
     }
     
     public class Time

@@ -11,7 +11,7 @@ namespace Lc.Csharp.Modulo1
     /// Classe Environment e DateTime
     /// String Builder e metodos Strings
     /// </summary>
-    class Lab05
+    class Environment
     {
         //static void Main(string[] args)
         //{

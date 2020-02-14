@@ -7,7 +7,7 @@ namespace Lc.Csharp.Modulo1
     /// <summary>
     /// Exception / Try catch
     /// </summary>
-    class Lab06
+    class TryCatch
     {
         //static void Main()
         //{

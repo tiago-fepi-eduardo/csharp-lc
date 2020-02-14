@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace Lc.Cdsharp
 {
-    class Lab01
+    class DataYpe
     {
         #region Main
 

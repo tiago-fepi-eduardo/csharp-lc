@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lc.Csharp.Modulo1
 {
-    class Lab02
+    class Parameters
     {
         //static void Main()
         //{

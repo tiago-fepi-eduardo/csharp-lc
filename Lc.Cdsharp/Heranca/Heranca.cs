@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lc.Csharp.Modulo1.Lab04
+namespace Lc.Csharp.Modulo1.Heranca
 {
-    class Lab04
+    class Heranca
     {
         //static void Main()
         //{
