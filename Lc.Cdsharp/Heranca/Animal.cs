@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lc.Csharp.Modulo1.Heranca
+namespace Lc.Csharp.Modulo1.Heranca2
 {
     class Animal
     {
-        public string Especie;
-        public string Nome;
-        public int Idade;
+        public DateTime Nascimento { get; set; }
 
-        public void Alimentar()
+        public Animal(DateTime nasc)
         {
-            Console.WriteLine("Nhame!");
+            Nascimento = nasc;
+        }
+
+        public void Passear()
+        {
+            Console.WriteLine("Passeando!");
         }
     }
 }

@@ -6,32 +6,32 @@ namespace Lc.Csharp.Modulo1.Interface
 {
     class Interface
     {
-        static void Main()
-        {
-            Cachorro cachorro = new Cachorro();
-            cachorro.Especie = "Puggy";
-            cachorro.Idade = 5;
-            cachorro.Nome = "Feio";
+        //static void Main()
+        //{
+        //    Cachorro cachorro = new Cachorro();
+        //    cachorro.Especie = "Puggy";
+        //    cachorro.Idade = 5;
+        //    cachorro.Nome = "Feio";
 
-            cachorro.Alimentar();
+        //    cachorro.Alimentar();
 
-            cachorro.Latir();
+        //    cachorro.Latir();
 
-            cachorro.CheckUp();
+        //    cachorro.CheckUp();
 
-            cachorro.Vacinar();
+        //    cachorro.Vacinar();
 
-            cachorro.Brincar();
+        //    cachorro.Brincar();
 
-            //////////////////////////// Programando para interface
+        //    //////////////////////////// Programando para interface
 
-            IAdulto cao = new Cachorro();
-            cao.CheckUp();
+        //    IAdulto cao = new Cachorro();
+        //    cao.CheckUp();
 
-            IFilhote filhote = new Cachorro();
-            filhote.Vacinar();
+        //    IFilhote filhote = new Cachorro();
+        //    filhote.Vacinar();
             
-            Console.Read();
-        }
+        //    Console.Read();
+        //}
     }
 }
