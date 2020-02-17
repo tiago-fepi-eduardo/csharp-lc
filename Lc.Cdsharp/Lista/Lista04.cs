@@ -26,7 +26,8 @@ namespace Lc.Csharp.Modulo1.Praticando
                 StringBuilder menu = new StringBuilder();
                 menu.Append("1 - Criar conta max");
                 menu.Append("\n2 - Criar conta universitaria");
-                menu.Append("\n3 - Imprimir conta");
+                menu.Append("\n3 - Investir");
+                menu.Append("\n4 - Imprimir conta");
                 menu.Append("\n0 - Sair");
                 Console.WriteLine(menu);
                 int tecla = int.Parse(Console.ReadLine());
@@ -40,6 +41,9 @@ namespace Lc.Csharp.Modulo1.Praticando
                         AdicionarContaUniversitaria();
                         break;
                     case 3:
+                        Investir();
+                        break;
+                    case 4:
                         ListarContas();
                         break;
                     case 0:
@@ -63,7 +67,7 @@ namespace Lc.Csharp.Modulo1.Praticando
             Console.WriteLine("Digite um email:");
             string email = Console.ReadLine();
 
-            string id = new Guid().ToString();
+            string id = Guid.NewGuid().ToString();
             DateTime criado = DateTime.Now;
             DateTime modificado = DateTime.Now;
             double saldo = 1;
@@ -100,7 +104,7 @@ namespace Lc.Csharp.Modulo1.Praticando
             Console.WriteLine("Digite um email:");
             string email = Console.ReadLine();
 
-            string id = new Guid().ToString();
+            string id = Guid.NewGuid().ToString();
             DateTime criado = DateTime.Now;
             DateTime modificado = DateTime.Now;
             double saldo = 1;
@@ -124,6 +128,23 @@ namespace Lc.Csharp.Modulo1.Praticando
                 Console.WriteLine("Adicionado com sucesso!");
             else
                 Console.WriteLine("Não foi possivel adicionar. Lista cheia!");
+        }
+
+        static void Investir()
+        {
+            Console.WriteLine("Digite o GUID da conta:");
+            string guid = Console.ReadLine();
+
+            foreach (var item in contas)
+            {
+                if (item.Id == guid)
+                {
+                    double invest = Investimento.Investir(item);
+                    item.Saldo = invest;
+                    Console.WriteLine("Investido com sucesso!");
+                    break;
+                }
+            }
         }
 
         static void ListarContas()
@@ -217,15 +238,24 @@ namespace Lc.Csharp.Modulo1.Praticando
 
     static class Investimento
     {
-        public static double InvestimentoFixo(int taxa, double valor)
+        public static double Investir(Conta conta)
         {
-            return valor * taxa;
-        }
-
-        public static double InvestimentoVariavel(int taxa, double valor)
-        {
-            double taxaVariable = new Random(1).NextDouble();
-            return valor * taxa * taxaVariable;
+            if (conta != null)
+            {
+                if (conta.GetType().Name == typeof(ContaUniversitaria).Name)
+                {
+                    ContaUniversitaria contaU = (ContaUniversitaria)conta;
+                    return contaU.saldo * ContaUniversitaria.Taxa;
+                }
+                else
+                {
+                    ContaMax contaM = (ContaMax)conta;
+                    return contaM.saldo * ContaMax.Taxa;
+                }
+            }
+            else
+                return 0;
         }
     }
+
 }
