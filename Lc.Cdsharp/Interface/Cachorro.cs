@@ -21,7 +21,7 @@ namespace Lc.Csharp.Modulo1.Interface
             Console.WriteLine("Vacinado!");
         }
 
-        public override void Brincar()
+        public new void Brincar()
         {
             base.Brincar();
             Console.WriteLine("Brincar classe filha.");

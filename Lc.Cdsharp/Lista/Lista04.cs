@@ -9,13 +9,13 @@ namespace Lc.Csharp.Modulo1.Praticando
     {
         static Conta[] contas = new Conta[3];
 
-        static void Main()
-        {
-            Iniciar();
+        //static void Main()
+        //{
+        //    Iniciar();
 
-            Console.WriteLine();
-            Console.WriteLine();
-        }
+        //    Console.WriteLine();
+        //    Console.WriteLine();
+        //}
 
         static void Iniciar()
         {

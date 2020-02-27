@@ -9,8 +9,8 @@ namespace Lc.Csharp.Modulo1
     /// </summary>
     class TryCatch
     {
-        //static void Main()
-        //{
+        static void Main()
+        {
             //int[] a = { 0, 1 };
             //int b = a[3];
 
@@ -24,7 +24,12 @@ namespace Lc.Csharp.Modulo1
             //{
             //    Console.WriteLine("Caught an exception -> \n {0}\n {1}\n\n", e.Message, e.StackTrace);
             //}
+            //finally
+            //{
+            //    Console.WriteLine("Finally.");
+            //}
 
+            //Console.WriteLine("seguindo meu codigo.");
 
 
             //try
@@ -48,53 +53,26 @@ namespace Lc.Csharp.Modulo1
             //}
 
 
+            try
+            {
+                MakeException.makeException(200);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
 
-        //    try
-        //    {
-        //        MakeException.makeException();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Console.WriteLine(e);
-        //    }
-
-        //    try
-        //    {
-        //        MakeException.makeCustomException();
-        //    }
-        //    catch (MinhaException e)
-        //    {
-        //        Console.WriteLine("\n\nError Code: {0}\nException: {1}", e.ErrorCode, e);
-        //        //throw (e); //RE-THROWING
-        //        //throw new Exception(String.Format(“\n\nError Code:{0}\n Exception: {1}”, e.ErrorCode, e), e); //INNER EXCEPTION	
-        //    }
-
-        //    Console.ReadLine();
-        //}
-    }
-
-    [Serializable]
-    public class MinhaException : ApplicationException
-    {
-        public int ErrorCode;
-        public MinhaException() { }
-        public MinhaException(string message) : base(message) { }
-        public MinhaException(string message, Exception inner, int errorCode) : base(message, inner)
-        {
-            ErrorCode = errorCode;
+            Console.ReadLine();
         }
     }
 
     class MakeException
     {
-        public static void makeException()
+        public static int ErrorCode { get; set; }
+        public static void makeException(int errorCode)
         {
-            throw new Exception("Erro no Make Exception!");
-        }
-        public static void makeCustomException()
-        {
-            throw new MinhaException("Erro no Make Custom Exception!", null, 19);
+            ErrorCode = errorCode;
+            throw new Exception($"Erro no Make Exception! ErroCode: {ErrorCode}");
         }
     }
-
 }

@@ -15,7 +15,7 @@ namespace Lc.Csharp.Modulo1.Interface
             Console.WriteLine("Nhame!");
         }
 
-        public virtual void Brincar()
+        public void Brincar()
         {
             Console.WriteLine("Brincar classe pai");
         }
