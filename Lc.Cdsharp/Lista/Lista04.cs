@@ -72,7 +72,7 @@ namespace Lc.Csharp.Modulo1.Praticando
             DateTime modificado = DateTime.Now;
             double saldo = 1;
 
-            ContaMax contaBancaria = new ContaMax(id, nome, cpf, email, saldo, criado, modificado);
+            ContaUniversitaria contaBancaria = new ContaUniversitaria(id, nome, cpf, email, saldo, criado, modificado);
 
             bool sucesso = false;
             for (int i = 0; i < contas.Length; i++)
@@ -110,7 +110,7 @@ namespace Lc.Csharp.Modulo1.Praticando
             double saldo = 1;
 
             ContaMax contaBancaria = new ContaMax(id, nome, cpf, email, saldo, criado, modificado);
-
+            
             bool sucesso = false;
             for (int i = 0; i < contas.Length; i++)
             {
@@ -257,5 +257,4 @@ namespace Lc.Csharp.Modulo1.Praticando
                 return 0;
         }
     }
-
 }
