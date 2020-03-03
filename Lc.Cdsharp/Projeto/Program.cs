@@ -9,37 +9,35 @@ namespace Lc.Csharp.Modulo1.Projeto
         public static List<Candidato> votacao = new List<Candidato>();
         public static List<Candidato> candidatos = new List<Candidato>();
 
-        //static void Main()
-        //{
-        //    CriarCandidatos();
+        static void Main()
+        {
+            CriarCandidatos();
 
-        //    int optMenu01 = 0;
-        //    do
-        //    {
-        //        StringBuilder menu01 = new StringBuilder();
-        //        menu01.Append("\n1 - Votar");
-        //        menu01.Append("\n2 - Contagem");
-        //        menu01.Append("\n3 - Sair");
+            int optMenu01 = 0;
+            do
+            {
+                StringBuilder menu01 = new StringBuilder();
+                menu01.Append("\n1 - Votar");
+                menu01.Append("\n2 - Contagem");
+                menu01.Append("\n3 - Sair");
 
-        //        Console.WriteLine(menu01);
-        //        optMenu01 = Int32.Parse(Console.ReadLine());
+                Console.WriteLine(menu01);
+                optMenu01 = Int32.Parse(Console.ReadLine());
 
-        //        switch (optMenu01)
-        //        {
-        //            case 1:
-        //                Votar();
-        //                break;
-        //            case 2:
-        //                Contagem();
-        //                break;
-        //            case 3:
-        //                break;
-        //        }
+                switch (optMenu01)
+                {
+                    case 1:
+                        Votar();
+                        break;
+                    case 2:
+                        Contagem();
+                        break;
+                    case 3:
+                        break;
+                }
 
-        //    } while (optMenu01 != 3);
-
-        //    Console.ReadLine();
-        //}
+            } while (optMenu01 != 3);
+        }
 
         private static void CriarCandidatos()
         {
@@ -49,9 +47,9 @@ namespace Lc.Csharp.Modulo1.Projeto
             Candidato candidato4 = new Candidato("\nNulo", 4, TipoCandidato.Nulo);
 
             candidatos.Add(candidato1);
-            candidatos.Add(candidato1);
-            candidatos.Add(candidato1);
-            candidatos.Add(candidato1);
+            candidatos.Add(candidato2);
+            candidatos.Add(candidato3);
+            candidatos.Add(candidato4);
         }
 
         private static void Contagem()
@@ -121,10 +119,52 @@ namespace Lc.Csharp.Modulo1.Projeto
 
         public static void Contagem()
         {
+            int totalCandidato1 = 0;
+            int totalCandidato2 = 0;
+            int totalNulo = 0;
+            int totalBranco = 0;
+            int totalVotos = Program.votacao.Count;
+            string vencedor = string.Empty;
+
             foreach (var item in Program.votacao)
             {
-                Console.WriteLine(item.Numero);
+                switch (item.Numero)
+                {
+                    case 1:
+                        totalCandidato1++;
+                        break;
+                    case 2:
+                        totalCandidato2++;
+                        break;
+                    case 3:
+                        totalBranco++;
+                        break;
+                    case 4:
+                        totalNulo++;
+                        break;
+                }
             }
+
+            if (totalCandidato1 > totalCandidato2)
+                vencedor = Program.candidatos[0].Nome;
+            else if (totalCandidato1 < totalCandidato2)
+                vencedor = Program.candidatos[1].Nome;
+            else
+                vencedor = "Empate";
+
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append($"\nTotal de Votos: {totalVotos}");
+            stringBuilder.Append($"\nTotal de Nulo: {ConvertePorcentagem(totalVotos, totalNulo)}");
+            stringBuilder.Append($"\nTotal Branco {ConvertePorcentagem( totalVotos, totalBranco)}");
+            stringBuilder.Append($"\nCandidato 1: {ConvertePorcentagem(totalVotos, totalCandidato1)}");
+            stringBuilder.Append($"\nCandidato 2: {ConvertePorcentagem(totalVotos, totalCandidato2)}");
+            stringBuilder.Append($"\nVENCEDOR: {vencedor}");
+            Console.WriteLine(stringBuilder);
+        }
+
+        private static double ConvertePorcentagem(int total, int valor)
+        {
+            return (valor * 100) / total;
         }
     }
 }
