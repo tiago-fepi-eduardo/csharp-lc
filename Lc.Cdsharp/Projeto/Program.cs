@@ -9,37 +9,37 @@ namespace Lc.Csharp.Modulo1.Projeto
         public static List<Candidato> votacao = new List<Candidato>();
         public static List<Candidato> candidatos = new List<Candidato>();
 
-        static void Main()
-        {
-            CriarCandidatos();
+        //static void Main()
+        //{
+        //    CriarCandidatos();
 
-            int optMenu01 = 0;
-            do
-            {
-                StringBuilder menu01 = new StringBuilder();
-                menu01.Append("\n1 - Votar");
-                menu01.Append("\n2 - Contagem");
-                menu01.Append("\n3 - Sair");
+        //    int optMenu01 = 0;
+        //    do
+        //    {
+        //        StringBuilder menu01 = new StringBuilder();
+        //        menu01.Append("\n1 - Votar");
+        //        menu01.Append("\n2 - Contagem");
+        //        menu01.Append("\n3 - Sair");
 
-                Console.WriteLine(menu01);
-                optMenu01 = Int32.Parse(Console.ReadLine());
+        //        Console.WriteLine(menu01);
+        //        optMenu01 = Int32.Parse(Console.ReadLine());
 
-                switch (optMenu01)
-                {
-                    case 1:
-                        Votar();
-                        break;
-                    case 2:
-                        Contagem();
-                        break;
-                    case 3:
-                        break;
-                }
+        //        switch (optMenu01)
+        //        {
+        //            case 1:
+        //                Votar();
+        //                break;
+        //            case 2:
+        //                Contagem();
+        //                break;
+        //            case 3:
+        //                break;
+        //        }
 
-            } while (optMenu01 != 3);
+        //    } while (optMenu01 != 3);
 
-            Console.ReadLine();
-        }
+        //    Console.ReadLine();
+        //}
 
         private static void CriarCandidatos()
         {
