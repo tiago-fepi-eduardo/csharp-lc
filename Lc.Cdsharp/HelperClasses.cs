@@ -51,12 +51,12 @@ namespace Aula4
         //}
     }
 
-    class Carro
-    {
-        public string Modelo { get; set; }
-        public void Acelerar()
-        {
-            Console.WriteLine("Vrummm!");
-        }
-    }
+    //class Carro
+    //{
+    //    public string Modelo { get; set; }
+    //    public void Acelerar()
+    //    {
+    //        Console.WriteLine("Vrummm!");
+    //    }
+    //}
 }

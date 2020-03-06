@@ -11,11 +11,13 @@ namespace Lc.Csharp.Modulo1.OverloadOverride
         //    Felino felino = new Felino();
         //    felino.Alimentar();
         //    felino.Andar();
+        //    felino.Dormir();
+        //    felino.Dormir(1);
+        //    felino.Dormir(100, "morreu");
 
         //    Peixe peixe = new Peixe();
         //    peixe.Alimentar();
         //    peixe.Andar();
-
         //}
     }
 }

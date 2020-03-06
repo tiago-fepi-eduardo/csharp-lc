@@ -6,7 +6,7 @@ namespace Lc.Csharp.Modulo1.OverloadOverride
 {
     class Peixe : BaseAnimal
     {
-        public void Andar()
+        public override void Andar()
         {
             Console.WriteLine("Peixe nadou.");
         }

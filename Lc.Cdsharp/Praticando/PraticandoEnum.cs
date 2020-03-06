@@ -34,12 +34,12 @@ namespace Lc.Csharp.Modulo1.Praticando
         Vermelho = 300
     }
 
-    class Carro
-    {
-        public string Marca { get; set; }
+    //class Carro
+    //{
+    //    public string Marca { get; set; }
 
-        public string Fabricante { get; set; }
+    //    public string Fabricante { get; set; }
 
-        public Cor Pintura { get; set; }
-    }
+    //    public Cor Pintura { get; set; }
+    //}
 }

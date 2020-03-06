@@ -11,9 +11,14 @@ namespace Lc.Csharp.Modulo1.OverloadOverride
             Console.WriteLine("Animal alimentado.");
         }
 
-        public void Andar()
+        public virtual void Andar()
         {
             Console.WriteLine("Animal andou.");
+        }
+
+        public void Dormir()
+        {
+            Console.WriteLine("Animal dormiu.");
         }
     }
 }
