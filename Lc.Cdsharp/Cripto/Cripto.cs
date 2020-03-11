@@ -5,55 +5,61 @@ using System.Security.Cryptography;
 
 namespace Lc.Csharp.Modulo1.Cripto
 {
-    static class Cripto
+    public static class Cripto
     {
-        static void Criptar(string source)
+        //static void Main()
+        //{
+        //    Console.WriteLine("### Cripto ###");
+
+        //    //Hash hash = new Hash(SHA512.Create());
+        //    Hash hash = new Hash(MD5.Create());
+
+        //    string result = hash.CriptografarSenha("123456");
+
+        //    bool ok = hash.VerificarSenha("1234567", result);
+
+        //    Console.WriteLine(result);
+        //    Console.WriteLine(ok);
+        //}
+    }
+
+    public class Hash
+    {
+        private HashAlgorithm _algoritmo;
+
+        public Hash(HashAlgorithm algoritmo)
         {
-            using (MD5 md5Hash = MD5.Create())
-            {
-                string hash = GetMd5Hash(md5Hash, source);
-                Console.WriteLine("Criopt para senha: " + source + " e: " + hash + ".");
-            }
+            _algoritmo = algoritmo;
         }
 
-        static string GetMd5Hash(MD5 md5Hash, string input)
+        public string CriptografarSenha(string senha)
         {
+            var encodedValue = Encoding.UTF8.GetBytes(senha);
+            var encryptedPassword = _algoritmo.ComputeHash(encodedValue);
 
-            // Convert the input string to a byte array and compute the hash.
-            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
-
-            // Create a new Stringbuilder to collect the bytes
-            // and create a string.
-            StringBuilder sBuilder = new StringBuilder();
-
-            // Loop through each byte of the hashed data 
-            // and format each one as a hexadecimal string.
-            for (int i = 0; i < data.Length; i++)
+            var sb = new StringBuilder();
+            foreach (var caracter in encryptedPassword)
             {
-                sBuilder.Append(data[i].ToString("x2"));
+                sb.Append(caracter.ToString("X2"));
             }
 
-            // Return the hexadecimal string.
-            return sBuilder.ToString();
+            return sb.ToString();
         }
 
-        // Verify a hash against a string.
-        static bool Decriptar(MD5 md5Hash, string input, string hash)
+        public bool VerificarSenha(string senhaDigitada, string senhaCadastrada)
         {
-            // Hash the input.
-            string hashOfInput = GetMd5Hash(md5Hash, input);
+            if (string.IsNullOrEmpty(senhaCadastrada))
+                throw new NullReferenceException("Cadastre uma senha.");
 
-            // Create a StringComparer an compare the hashes.
-            StringComparer comparer = StringComparer.OrdinalIgnoreCase;
+            var encryptedPassword = _algoritmo.ComputeHash(Encoding.UTF8.GetBytes(senhaDigitada));
 
-            if (0 == comparer.Compare(hashOfInput, hash))
+            var sb = new StringBuilder();
+            foreach (var caractere in encryptedPassword)
             {
-                return true;
+                sb.Append(caractere.ToString("X2"));
             }
-            else
-            {
-                return false;
-            }
+
+            return sb.ToString() == senhaCadastrada;
         }
     }
 }
