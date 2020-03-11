@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Configuration;
 
 namespace Lc.Csharp.Modulo1
 {
     class FileWork
     {
-        static void Main()
-        {
-            CriarArquivo();
-            LerArquivos();
-        }
+        //static void Main()
+        //{
+        //    string sValue = ConfigurationManager.AppSettings["MinhaChave"];
+        //    Console.WriteLine(sValue);
+
+
+        //    //CriarArquivo();
+        //    //LerArquivos();
+        //}
 
         #region Folder
 
