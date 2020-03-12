@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 
 namespace Lc.Csharp.Modulo1.Cripto
 {
-    public static class Cripto
+    public static class Criptogra
     {
         //static void Main()
         //{
