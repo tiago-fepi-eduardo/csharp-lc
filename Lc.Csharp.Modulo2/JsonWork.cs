@@ -1,68 +1,44 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using System.IO;
-using System.Text;
 
 namespace Lc.Csharp.Modulo1
 {
     class JsonWork
     {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
         static void Main()
         {
-            string arquivo = "myfile.json";
-            StreamReader file = File.OpenText(arquivo);
-            //var dic = JsonConvert.DeserializeObject<List<string>>(file.ReadToEnd());
-            //var dic = JsonConvert.DeserializeObject<Dictionary<string,string>>(file.ReadToEnd());
-            var dic = JsonConvert.DeserializeObject<MeuJson>(file.ReadToEnd());
-
-            Console.WriteLine(dic.prop1);
-            Console.WriteLine(dic.prop2);
-            Console.WriteLine(dic.prop5);
-
-            foreach (var item in dic.prop4)
+            using (StreamReader file = File.OpenText("myfile.json"))
             {
-                Console.WriteLine("\t"+item);
-                //Console.WriteLine($"{item.Key} - {item.Value}");
+                // Chave valor
+                //var dic = JsonConvert.DeserializeObject<Dictionary<dynamic, dynamic>>(file.ReadToEnd());
+
+                // Lista
+                //var dic = JsonConvert.DeserializeObject<List<string>>(file.ReadToEnd());
+
+                // classe com chave valor e lista
+                var dic = JsonConvert.DeserializeObject<MinhaEstrutura>(file.ReadToEnd());
+                Console.WriteLine(dic.chave1);
+                Console.WriteLine(dic.chave2);
+                Console.WriteLine(dic.chave3);
+                Console.WriteLine(dic.chave5);
+
+                foreach (var item in dic.chave4)
+                {
+                    Console.WriteLine("\t" + item);
+                    //Console.WriteLine($"{item.Key} - {item.Value}");
+                }
             }
-            file.Dispose();
-            file.Close();
         }
-        */
     }
 
-    /*
-    public class MeuJson
+    class MinhaEstrutura
     {
-        public string prop1 { get; set; }
-        public string prop2 { get; set; }
-        public string prop3 { get; set; }
-        public List<string> prop4 { get; set; }
-        public string prop5 { get; set; }
+        public string chave1 { get; set; }
+        public int chave2 { get; set; }
+        public bool chave3 { get; set; }
+        public List<string> chave4 { get; set; }
+        public string chave5 { get; set; }
     }
-    */
 }

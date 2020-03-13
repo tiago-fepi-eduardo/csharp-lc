@@ -1,3 +1,14 @@
+{
+  "chave1": "valor texto",
+  "chave2": 100,
+  "chave3": true,
+  "chave4": [
+    "texto1",
+    "texto2",
+    "texto3"
+  ],
+  "chave5":  "Valor texto  final"
+}
 
 
 
