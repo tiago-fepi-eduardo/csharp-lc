@@ -1,22 +1,25 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System;
 using System.IO;
 
 namespace Lc.Csharp.Modulo1
 {
     class FileWork
     {
-        //static void Main()
-        //{
-            
-        //}
+        static void Main()
+        {
+            LerArquivos();
+        }
 
         #region Folder
 
         static void CriarPasta()
         {
+            /*
+            string folder = "Origem";
+            string path = @"C:\Users\\tiago\Documents\ExemploAula\";
+            string pathComplete = Path.Combine(path, folder);
+            */
+
             string sourcePath = @"C:\Users\tiago\Documents\ExemploAula\Origem";
             string targetPath = @"C:\Users\tiago\Documents\ExemploAula\Destino";
 
@@ -31,16 +34,8 @@ namespace Lc.Csharp.Modulo1
             string sourcePath = @"C:\Users\tiago\Documents\ExemploAula\Origem";
             string targetPath = @"C:\Users\tiago\Documents\ExemploAula\Destino";
 
-            try
-            {
-                Directory.Delete(sourcePath);
-                Directory.Delete(targetPath);
-                //Directory.Delete(targetPath, true);
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            Directory.Delete(sourcePath);
+            Directory.Delete(targetPath);
 
             Console.WriteLine("Sucesso");
         }
@@ -57,39 +52,30 @@ namespace Lc.Csharp.Modulo1
 
             if (!File.Exists(pathString))
             {
-                //using (FileStream fs = File.Create(pathString))
-                //{
-                //    Byte[] texto1 = new UTF8Encoding(true).GetBytes("Primeira linha");
-                //    fs.Write(texto1, 0, texto1.Length);
-
-                //    byte[] texto2 = new UTF8Encoding(true).GetBytes("Segunda linha");
-                //    fs.Write(texto2, 0, texto2.Length);
-                //}
-
                 using (StreamWriter sw = File.CreateText(pathString))
                 {
                     sw.WriteLine("New file created: {0}", DateTime.Now.ToString());
-                    sw.WriteLine("Author: Mahesh Chand");
-                    sw.WriteLine("Add one more line ");
-                    sw.WriteLine("Add one more line ");
-                    sw.WriteLine("Done! ");
+                    sw.WriteLine("Add one more line 1");
+                    sw.WriteLine("Done!!!!!!!!!");
                 }
+                Console.WriteLine("Sucesso");
             }
             else
-            {
-                Console.WriteLine("Aruivo \"{0}\" ja existe.", file);
-                return;
-            }
-
-            Console.WriteLine("Sucesso");
+                Console.WriteLine("Arquivo ja existe");
         }
 
         static void LerArquivos()
         {
-            string pathString = @"C:\Users\tiago\Documents\ExemploAula\Origem\FileNovo.txt";
+            string file = "FileNovo_copy.txt";
+            string pasta = @"C:\Users\tiago\Documents\ExemploAula\Destino";
+            string pathString = Path.Combine(pasta, file);
 
             using (StreamReader sr = File.OpenText(pathString))
             {
+                // Ler o arquivo todo.
+                //Console.WriteLine(sr.ReadToEnd());
+
+                // Ler por linha
                 string s = "";
                 while ((s = sr.ReadLine()) != null)
                 {
@@ -102,24 +88,24 @@ namespace Lc.Csharp.Modulo1
 
         static void DeletarArquivo()
         {
-            string file = @"C:\Users\tiago\Documents\ExemploAula\Origem\fileNovo.txt";
+            string file = "FileNovo.txt";
+            string pasta = @"C:\Users\tiago\Documents\ExemploAula\";
+            string pathString = Path.Combine(pasta, file);
 
-            //if (File.Exists(file))
-            //{
-
-            File.Delete(file);
-
-            //}
-
-            Console.WriteLine("Sucesso");
+            if (File.Exists(pathString))
+            {
+                File.Delete(pathString);
+            }
+            else
+                Console.WriteLine("Arquivo nao existe");
         }
 
-        static void MoverArquivo()
+        static void CopiarArquivo()
         {
             string sourcePath = @"C:\Users\tiago\Documents\ExemploAula\Origem\fileNovo.txt";
             string targetPath = @"C:\Users\tiago\Documents\ExemploAula\Destino\fileNovo_copy.txt";
 
-            File.Copy(sourcePath, targetPath, true);
+            File.Copy(sourcePath, targetPath);
 
             Console.WriteLine("Sucesso");
         }
