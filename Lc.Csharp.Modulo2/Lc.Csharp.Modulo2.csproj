@@ -11,9 +11,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Lista\settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="myfile.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Linq\" />
   </ItemGroup>
 
 </Project>

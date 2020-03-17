@@ -5,10 +5,9 @@ namespace Lc.Csharp.Modulo1
 {
     class FileWork
     {
-        static void Main()
-        {
-            LerArquivos();
-        }
+        //static void Main()
+        //{
+        //}
 
         #region Folder
 
@@ -72,10 +71,6 @@ namespace Lc.Csharp.Modulo1
 
             using (StreamReader sr = File.OpenText(pathString))
             {
-                // Ler o arquivo todo.
-                //Console.WriteLine(sr.ReadToEnd());
-
-                // Ler por linha
                 string s = "";
                 while ((s = sr.ReadLine()) != null)
                 {
