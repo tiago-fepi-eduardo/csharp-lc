@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lc.Csharp.Modulo1.Interface
+namespace Lc.Csharp.Modulo2.Interface
 {
-    interface IAnimal
+    interface IVoar
     {
-        void Brincar();
+        string BaterAsas();
     }
 }

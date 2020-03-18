@@ -10,37 +10,37 @@ namespace Lc.Csharp.Modulo2.Lista
 {
     class M02Lista02
     {
-        static void Main()
-        {
-            Settings _settings = new Settings();
-            using (StreamReader file = File.OpenText(@"Lista\settings.json"))
-            {
-                _settings = JsonConvert.DeserializeObject<Settings>(file.ReadToEnd());
-            }
+        //static void Main()
+        //{
+        //    Settings _settings = new Settings();
+        //    using (StreamReader file = File.OpenText(@"Lista\settings.json"))
+        //    {
+        //        _settings = JsonConvert.DeserializeObject<Settings>(file.ReadToEnd());
+        //    }
                         
-            int opt = 0;
-            do
-            {
-                opt = Menu();
+        //    int opt = 0;
+        //    do
+        //    {
+        //        opt = Menu();
 
-                switch (opt)
-                {
-                    case 1:
-                        CadastrarSenha(_settings);
-                        break;
-                    case 2:
-                        Logar(_settings);
-                        break;
-                    case 3:
-                        LimparBase(_settings);
-                        break;
-                    case 4:
-                        Sair();
-                        break;
-                }
+        //        switch (opt)
+        //        {
+        //            case 1:
+        //                CadastrarSenha(_settings);
+        //                break;
+        //            case 2:
+        //                Logar(_settings);
+        //                break;
+        //            case 3:
+        //                LimparBase(_settings);
+        //                break;
+        //            case 4:
+        //                Sair();
+        //                break;
+        //        }
 
-            } while (opt != 4);
-        }
+        //    } while (opt != 4);
+        //}
 
         private static int Menu()
         {
