@@ -13,7 +13,7 @@ namespace ConsoleProjetoDependencia
             Console.WriteLine(cadastro.Imprimir());
 
             AnalisarCadastro analisarCadastro = new AnalisarCadastro();
-            var ok = analisarCadastro.Analisar(cadastro);
+            var ok = analisarCadastro.Analisar(cadastro.Imprimir());
             if (ok)
                 Console.WriteLine("Cadstro ok");
             else
