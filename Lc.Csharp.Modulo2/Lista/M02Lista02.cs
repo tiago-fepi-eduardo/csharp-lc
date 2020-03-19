@@ -17,7 +17,7 @@ namespace Lc.Csharp.Modulo2.Lista
         //    {
         //        _settings = JsonConvert.DeserializeObject<Settings>(file.ReadToEnd());
         //    }
-                        
+
         //    int opt = 0;
         //    do
         //    {
@@ -84,11 +84,13 @@ namespace Lc.Csharp.Modulo2.Lista
             string senhaCriptografada = oHash.CriptografarSenha(senha);
 
             bool result = ArquivosEPastas.LerArquivo(settings, usuario, senhaCriptografada);
-
+            
             if (result)
                 Console.WriteLine("Logado com sucesso.");
             else
                 Console.WriteLine("Não foi possivel logar.");
+
+            
         }
 
         private static void LimparBase(Settings settings)
@@ -112,6 +114,8 @@ namespace Lc.Csharp.Modulo2.Lista
         public string Caminho { get; set; }
         public string Pasta { get; set; }
         public string Arquivo { get; set; }
+
+        
     }
 
     public class ArquivosEPastas
@@ -124,7 +128,7 @@ namespace Lc.Csharp.Modulo2.Lista
                 {
                     using (StreamWriter sw = File.CreateText(settings.Caminho + settings.Pasta + settings.Arquivo))
                     {
-                        sw.WriteLine(usuario);
+                        sw.WriteLine(usuario + "#" + senha);
                         sw.WriteLine(senha);
                     }
                 }
