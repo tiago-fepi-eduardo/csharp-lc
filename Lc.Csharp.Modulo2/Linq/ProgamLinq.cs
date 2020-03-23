@@ -53,7 +53,7 @@ namespace Lc.Csharp.Modulo2.Linq
                 Console.WriteLine(item);
             }
 
-            
+
             // Filtrar classes compelxas
             List<Car> cars = new List<Car>
             {
