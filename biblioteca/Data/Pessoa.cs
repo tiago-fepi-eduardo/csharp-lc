@@ -1,6 +1,7 @@
 ﻿using Interface;
 using System.Linq;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Data
 {
@@ -32,6 +33,13 @@ namespace Data
         public string GetCpf()
         {
             return CPF;
+        }
+
+        public string ImprimirPessoa()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append($"--> CPF: {CPF} / Nome: {Nome} / E-mail: {Email}");
+            return stringBuilder.ToString();
         }
     }
 }

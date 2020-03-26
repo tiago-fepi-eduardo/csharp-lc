@@ -1,6 +1,7 @@
 ﻿using Interface;
 using System.Linq;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Data
 {
@@ -32,6 +33,13 @@ namespace Data
         public int GetTombo()
         {
             return Tombo;
+        }
+
+        public string ImprimirLivro()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append($"--> Tombo: {Tombo} / Livro: {Titulo} / Autor: {Autor}");
+            return stringBuilder.ToString();
         }
     }
 }

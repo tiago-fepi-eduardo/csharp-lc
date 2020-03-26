@@ -14,6 +14,7 @@ namespace Presentation
         public static List<ILivro> listLivro = new List<ILivro>();
         public static List<IEmprestimo> listEmprestimo = new List<IEmprestimo>();
 
+
         static void Main(string[] args)
         {
             int opt = 0;
@@ -23,11 +24,23 @@ namespace Presentation
 
                 switch (opt)
                 {
-                    case 1:
+                    case 11:
                         CadastrarLivro();
                         break;
-                    case 2:
+                    case 12:
+                        PesquisarLivro();
+                        break;
+                    case 13:
+                        DeletarLivro();
+                        break;
+                    case 21:
                         CadastrarPessoa();
+                        break;
+                    case 22:
+                        PesquisarPessoa();
+                        break;
+                    case 23:
+                        DeletarPessoa();
                         break;
                     case 3:
                         CadastrarEmprestimo();
@@ -42,6 +55,38 @@ namespace Presentation
 
             } while (opt != 5);
         }
+
+        private static int Menu()
+        {
+            bool menuOK = true;
+            int opt;
+            do
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.Append("\n## MENU ##");
+                stringBuilder.Append("\n- Livro");
+                stringBuilder.Append("\n11 - Cadastrar livro");
+                stringBuilder.Append("\n12 - Pesquisar livro");
+                stringBuilder.Append("\n13 - Deletar livro");
+                stringBuilder.Append("\n- Pessoa");
+                stringBuilder.Append("\n21 - Cadastrar pessoa");
+                stringBuilder.Append("\n22 - Pesquisar pessoa");
+                stringBuilder.Append("\n23 - Deletar pessoa");
+                stringBuilder.Append("\n3 - Emprestar Livro");
+                stringBuilder.Append("\n4 - Devolver");
+                stringBuilder.Append("\n5 - Sair");
+                Console.WriteLine(stringBuilder);
+
+                if (Int32.TryParse(Console.ReadLine(), out opt))
+                    menuOK = true;
+                else
+                    menuOK = false;
+
+            } while (!menuOK);
+
+            return opt;
+        }
+
 
         private static void DevolverEmprestimo()
         {
@@ -96,48 +141,105 @@ namespace Presentation
 
         private static void CadastrarPessoa()
         {
-            Console.Write("Entre com um cpf: ");
-            var cpf = Console.ReadLine();
-            Console.Write("Entre com um nome de pessoa: ");
-            var nome = Console.ReadLine();
-            Console.Write("Entre com um e-mail: ");
-            var mail = Console.ReadLine();
+            string cpf, nome, mail;
+            do {
+                Console.Write("Entre com um cpf: ");
+                cpf = Console.ReadLine();
+            } while (string.IsNullOrEmpty(cpf));
+
+            do {
+                Console.Write("Entre com um nome de pessoa: ");
+                nome = Console.ReadLine();
+            } while (string.IsNullOrEmpty(nome));
+
+            do {
+                Console.Write("Entre com um e-mail: ");
+                mail = Console.ReadLine();
+            } while (string.IsNullOrEmpty(mail));
 
             IPessoa pessoa = new Pessoa(cpf, nome, mail);
-
             listPessoa.Add(pessoa);
             Console.WriteLine("--> Pessoa cadastrado com sucesso.");
         }
 
         private static void CadastrarLivro()
         {
-            Console.Write("Entre com um nome de um livro: ");
-            var titulo = Console.ReadLine();
-            Console.Write("Entre com o autor do livro: ");
-            var autor = Console.ReadLine();
+            string titulo, autor;
+
+            do
+            {
+                Console.Write("Entre com um nome de um livro: ");
+                titulo = Console.ReadLine();
+            } while (string.IsNullOrEmpty(titulo));
+
+            do
+            {
+                Console.Write("Entre com o autor do livro: ");
+                autor = Console.ReadLine();
+            } while (string.IsNullOrEmpty(autor));
 
             ILivro livro = new Livro(listLivro.Count, titulo, autor);
-
             listLivro.Add(livro);
             Console.WriteLine("--> Livro cadastrado com sucesso.");
-        }
-
-        private static int Menu()
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append("\n## MENU ##");
-            stringBuilder.Append("\n1 - Cadastrar livro");
-            stringBuilder.Append("\n2 - Cadastrar Pessoa ");
-            stringBuilder.Append("\n3 - Emprestar Livro");
-            stringBuilder.Append("\n4 - Devolver");
-            stringBuilder.Append("\n5 - Sair");
-            Console.WriteLine(stringBuilder);
-            return Int32.Parse(Console.ReadLine());
         }
 
         private static void Sair()
         {
             Console.WriteLine("Saindo ...");
+        }
+
+
+        private static void DeletarPessoa()
+        {
+            Console.WriteLine("--> Not implemented yet  :(");
+        }
+
+        private static void DeletarLivro()
+        {
+            Console.WriteLine("--> Not implemented yet :(");
+        }
+
+
+        private static void PesquisarPessoa()
+        {
+            BibliocatecaBusiness biblioteca = new BibliocatecaBusiness();
+            IPessoa iPessoa;
+
+            do
+            {
+                iPessoa = new Pessoa();
+
+                Console.Write("Entre com o CPF da pessoa: ");
+                var cpf = Console.ReadLine();
+                iPessoa = biblioteca.BuscarPessoa(iPessoa, cpf, listPessoa);
+
+                if (iPessoa == null)
+                    Console.WriteLine("--> Pessoa nao existente no cadastro. Tente novamente. ");
+                else
+                    Console.WriteLine(iPessoa.ImprimirPessoa());
+
+            } while (iPessoa == null);
+        }
+
+        private static void PesquisarLivro()
+        {
+            BibliocatecaBusiness biblioteca = new BibliocatecaBusiness();
+            ILivro iLivro;
+
+            do
+            {
+                iLivro = new Livro();
+
+                Console.Write("Entre com o Tombo do livro: ");
+                var tombo = Convert.ToInt32(Console.ReadLine());
+                iLivro = biblioteca.BuscarLivro(iLivro, tombo, listLivro);
+
+                if (iLivro == null)
+                    Console.WriteLine("--> Livro nao existente no cadastro. Tente novamente. ");
+                else
+                    Console.WriteLine(iLivro.ImprimirLivro());
+
+            } while (iLivro == null);
         }
     }
 }

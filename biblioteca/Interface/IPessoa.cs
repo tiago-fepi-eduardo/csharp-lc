@@ -7,5 +7,7 @@ namespace Interface
     {
         string GetCpf();
         IPessoa BuscarPessoa(string cpf, List<IPessoa> listPessoa);
+
+        string ImprimirPessoa();
     }
 }

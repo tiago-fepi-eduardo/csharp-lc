@@ -8,5 +8,7 @@ namespace Interface
         int GetTombo();
 
         ILivro BuscarLivro(int tombo, List<ILivro> listLivro);
+
+        string ImprimirLivro();
     }
 }
