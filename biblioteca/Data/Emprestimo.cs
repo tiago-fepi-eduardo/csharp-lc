@@ -1,5 +1,7 @@
 ﻿using Interface;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Data
 {
@@ -13,6 +15,7 @@ namespace Data
 
         private ILivro Livro { get; set; }
 
+
         public void RealizarEmprestimo(int id, DateTime d, IPessoa p, ILivro l)
         {
             Id = id;
@@ -21,24 +24,14 @@ namespace Data
             Livro = l;
         }
 
-        public DateTime GetData()
+        public IEmprestimo BuscarEmprestimo(int id, List<IEmprestimo> listEmprestimo)
         {
-            return DataEmprestimo;
+            return listEmprestimo.Where(x => x.GetId() == id).FirstOrDefault();
         }
 
         public int GetId()
         {
             return Id;
-        }
-
-        public ILivro GetLivro()
-        {
-            return Livro;
-        }
-
-        public IPessoa GetPessoa()
-        {
-            return Pessoa;
         }
     }
 }

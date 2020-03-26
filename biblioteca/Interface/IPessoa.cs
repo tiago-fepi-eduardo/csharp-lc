@@ -1,13 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Interface
 {
     public interface IPessoa
     {
-        int GetCPF();
-
-        string GetNome();
-
-        string GetEmail();
+        string GetCpf();
+        IPessoa BuscarPessoa(string cpf, List<IPessoa> listPessoa);
     }
 }

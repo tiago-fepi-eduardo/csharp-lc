@@ -1,5 +1,6 @@
 ﻿using Interface;
-using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Data
 {
@@ -11,6 +12,11 @@ namespace Data
 
         public string Autor { get; set; }
 
+        public Livro()
+        {
+
+        }
+
         public Livro(int c, string n, string e)
         {
             Tombo = c;
@@ -18,19 +24,14 @@ namespace Data
             Autor = e;
         }
 
+        public ILivro BuscarLivro(int tombo, List<ILivro> listLivro)
+        {
+            return listLivro.Where(x => x.GetTombo() == tombo).FirstOrDefault();
+        }
+
         public int GetTombo()
         {
             return Tombo;
-        }
-
-        public string GetTitulo()
-        {
-            return Titulo;
-        }
-
-        public string GetAutor()
-        {
-            return Autor;
         }
     }
 }

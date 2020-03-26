@@ -1,15 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Interface
 {
     public interface IEmprestimo
     {
+        void RealizarEmprestimo(int id, DateTime dataEmprestimo, IPessoa p, ILivro l);
+
         int GetId();
 
-        ILivro GetLivro();
-
-        IPessoa GetPessoa();
-
-        void RealizarEmprestimo(int id, DateTime dataEmprestimo, IPessoa p, ILivro l);
+        IEmprestimo BuscarEmprestimo(int id, List<IEmprestimo> listEmprestimo);
     }
 }

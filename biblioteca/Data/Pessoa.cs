@@ -1,37 +1,37 @@
 ﻿using Interface;
-using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Data
 {
     public class Pessoa : IPessoa
     {
-        public int CPF { get; set; }
+        public string CPF { get; set; }
 
         public string Nome { get; set; }
 
         public string Email { get; set; }
 
-        public Pessoa(int c, string n, string e)
+        public Pessoa()
+        {
+
+        }
+
+        public Pessoa(string c, string n, string e)
         {
             CPF = c;
             Nome = n;
             Email = e;
         }
 
-        public int GetCPF()
+        public IPessoa BuscarPessoa(string cpf, List<IPessoa> listPessoa)
+        {
+            return listPessoa.Where(x => x.GetCpf() == cpf).FirstOrDefault();
+        }
+
+        public string GetCpf()
         {
             return CPF;
         }
-
-        public string GetNome()
-        {
-            return Nome;
-        }
-
-        public string GetEmail()
-        {
-            return Email;
-        }
-
     }
 }

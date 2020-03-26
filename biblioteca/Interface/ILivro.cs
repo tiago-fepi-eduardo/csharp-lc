@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Interface
 {
@@ -6,8 +7,6 @@ namespace Interface
     {
         int GetTombo();
 
-        string GetTitulo();
-
-        string GetAutor();
+        ILivro BuscarLivro(int tombo, List<ILivro> listLivro);
     }
 }
