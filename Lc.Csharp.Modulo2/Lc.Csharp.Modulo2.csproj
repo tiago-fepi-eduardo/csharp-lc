@@ -19,4 +19,14 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Presentation">
+      <HintPath>dll\Presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

@@ -7,30 +7,30 @@ namespace Lc.Csharp.Modulo2.PassagemParametro
     class PraticaParam
     {
 
-        static void Main()
-        {
-            Console.WriteLine("Entre com o primeiro valor: ");
-            int a = int.Parse(Console.ReadLine());
+        //static void Main()
+        //{
+        //    Console.WriteLine("Entre com o primeiro valor: ");
+        //    int a = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Entre com o segundo valor: ");
-            int b = int.Parse(Console.ReadLine());
+        //    Console.WriteLine("Entre com o segundo valor: ");
+        //    int b = int.Parse(Console.ReadLine());
 
-            // Soma
-            int soma = NormalFuncSoma(a, b);
-            Console.WriteLine("Soma = " + soma);
+        //    // Soma
+        //    int soma = NormalFuncSoma(a, b);
+        //    Console.WriteLine("Soma = " + soma);
 
-            // Subtracao
-            int sub = 0;
-            RefFuncSubtracao(a, b, ref sub);
-            Console.WriteLine("Subtracao = " + sub);
+        //    // Subtracao
+        //    int sub = 0;
+        //    RefFuncSubtracao(a, b, ref sub);
+        //    Console.WriteLine("Subtracao = " + sub);
 
-            // Multiplicacao
-            OutFuncMultiplicacao(a, b, out int mult);
-            Console.WriteLine("Multiplicacao = " + mult);
+        //    // Multiplicacao
+        //    OutFuncMultiplicacao(a, b, out int mult);
+        //    Console.WriteLine("Multiplicacao = " + mult);
 
-            // Divisao
-            VarFuncDivisao(a, b);
-        }
+        //    // Divisao
+        //    VarFuncDivisao(a, b);
+        //}
 
         static int NormalFuncSoma(int a, int b)
         {
