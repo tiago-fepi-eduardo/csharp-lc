@@ -93,7 +93,8 @@ namespace Presentation
             BibliocatecaBusiness biblioteca = new BibliocatecaBusiness();
             IEmprestimo iEmprestimo;
 
-            do {
+            do
+            {
                 iEmprestimo = new Emprestimo();
                 Console.Write("Entre o numero do emprestimo: ");
                 var id = Convert.ToInt32(Console.ReadLine());
@@ -102,6 +103,8 @@ namespace Presentation
 
                 if (iEmprestimo == null)
                     Console.WriteLine("--> Devolucao nao existente. Tente novamente. ");
+                else
+                    listEmprestimo.Remove(iEmprestimo);
 
             } while (iEmprestimo == null);
             Console.WriteLine("--> Devolucao executada com sucesso");
@@ -114,7 +117,8 @@ namespace Presentation
             IPessoa iPessoa;
             ILivro iLivro;
 
-            do {
+            do
+            {
                 iPessoa = new Pessoa();
                 iLivro = new Livro();
 
@@ -142,17 +146,20 @@ namespace Presentation
         private static void CadastrarPessoa()
         {
             string cpf, nome, mail;
-            do {
+            do
+            {
                 Console.Write("Entre com um cpf: ");
                 cpf = Console.ReadLine();
             } while (string.IsNullOrEmpty(cpf));
 
-            do {
+            do
+            {
                 Console.Write("Entre com um nome de pessoa: ");
                 nome = Console.ReadLine();
             } while (string.IsNullOrEmpty(nome));
 
-            do {
+            do
+            {
                 Console.Write("Entre com um e-mail: ");
                 mail = Console.ReadLine();
             } while (string.IsNullOrEmpty(mail));
@@ -191,12 +198,68 @@ namespace Presentation
 
         private static void DeletarPessoa()
         {
-            Console.WriteLine("--> Not implemented yet  :(");
+            BibliocatecaBusiness biblioteca = new BibliocatecaBusiness();
+            IPessoa iPessoa;
+            IEmprestimo iEmprestimo;
+
+            do
+            {
+                iPessoa = new Pessoa();
+
+                Console.Write("Entre com o CPF da pessoa: ");
+                var cpf = Console.ReadLine();
+                iPessoa = biblioteca.BuscarPessoa(iPessoa, cpf, listPessoa);
+
+                if (iPessoa == null)
+                    Console.WriteLine("--> Pessoa nao existente no cadastro. Tente novamente. ");
+                else
+                {
+                    iEmprestimo = new Emprestimo();
+                    iEmprestimo = biblioteca.BuscarEmprestimoPorPessoa(iEmprestimo, iPessoa, listEmprestimo);
+
+                    if (iEmprestimo == null)
+                    {
+                        listPessoa.Remove(iPessoa);
+                        Console.WriteLine("--> Pessoa removida com sucesso. ");
+                    }
+                    else
+                        Console.WriteLine("--> Pessoa emprestado. Nao e possivel remove-lo neste momento. ");
+                }
+
+            } while (iPessoa == null);
         }
 
         private static void DeletarLivro()
         {
-            Console.WriteLine("--> Not implemented yet :(");
+            BibliocatecaBusiness biblioteca = new BibliocatecaBusiness();
+            ILivro iLivro;
+            IEmprestimo iEmprestimo;
+
+            do
+            {
+                iLivro = new Livro();
+
+                Console.Write("Entre com o Tombo do livro: ");
+                var tombo = Convert.ToInt32(Console.ReadLine());
+                iLivro = biblioteca.BuscarLivro(iLivro, tombo, listLivro);
+
+                if (iLivro == null)
+                    Console.WriteLine("--> Livro nao existente no cadastro. Tente novamente. ");
+                else
+                {
+                    iEmprestimo = new Emprestimo();
+                    iEmprestimo = biblioteca.BuscarEmprestimoPorLivro(iEmprestimo, iLivro, listEmprestimo);
+
+                    if (iEmprestimo == null)
+                    {
+                        listLivro.Remove(iLivro);
+                        Console.WriteLine("--> Livro removida com sucesso. ");
+                    }
+                    else
+                        Console.WriteLine("--> Livro emprestado. Nao e possivel remove-lo neste momento. ");
+                }
+
+            } while (iLivro == null);
         }
 
 

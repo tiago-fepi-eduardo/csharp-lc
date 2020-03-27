@@ -29,9 +29,29 @@ namespace Data
             return listEmprestimo.Where(x => x.GetId() == id).FirstOrDefault();
         }
 
+        public IEmprestimo BuscarEmprestimoPorPessoa(IPessoa pessoa, List<IEmprestimo> listEmprestimo)
+        {
+            return listEmprestimo.Where(x => x.GetPessoa() == pessoa).FirstOrDefault();
+        }
+
+        public IEmprestimo BuscarEmprestimoPorLivro(ILivro livro, List<IEmprestimo> listEmprestimo)
+        {
+            return listEmprestimo.Where(x => x.GetLivro() == livro).FirstOrDefault();
+        }
+
         public int GetId()
         {
             return Id;
+        }
+
+        public IPessoa GetPessoa()
+        {
+            return Pessoa;
+        }
+
+        public ILivro GetLivro()
+        {
+            return Livro;
         }
     }
 }

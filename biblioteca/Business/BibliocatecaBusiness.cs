@@ -16,6 +16,16 @@ namespace Business
             return emprestimo;            
         }
 
+        public IEmprestimo BuscarEmprestimoPorLivro(IEmprestimo emprestimo, ILivro livro, List<IEmprestimo> listEmprestimo)
+        {
+            return emprestimo.BuscarEmprestimoPorLivro(livro, listEmprestimo);
+        }
+
+        public IEmprestimo BuscarEmprestimoPorPessoa(IEmprestimo emprestimo, IPessoa pessoa, List<IEmprestimo> listEmprestimo)
+        {
+            return emprestimo.BuscarEmprestimoPorPessoa(pessoa, listEmprestimo);
+        }
+
         public IPessoa BuscarPessoa(IPessoa pessoa, string cpf, List<IPessoa> listPessoa)
         {
             return pessoa.BuscarPessoa(cpf, listPessoa);

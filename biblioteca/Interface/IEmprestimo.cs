@@ -9,6 +9,15 @@ namespace Interface
 
         int GetId();
 
+        ILivro GetLivro();
+
+        public IPessoa GetPessoa();
+
         IEmprestimo BuscarEmprestimo(int id, List<IEmprestimo> listEmprestimo);
+
+        IEmprestimo BuscarEmprestimoPorLivro(ILivro livro, List<IEmprestimo> listEmprestimo);
+
+        IEmprestimo BuscarEmprestimoPorPessoa(IPessoa pessoa, List<IEmprestimo> listEmprestimo);
+
     }
 }
