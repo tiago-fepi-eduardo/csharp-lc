@@ -1,8 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Presentation;
 using System.Reflection;
+using System.Net;
+using System.Net.Http;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace Lc.Csharp.Modulo2.Reflection
 {
@@ -10,7 +13,7 @@ namespace Lc.Csharp.Modulo2.Reflection
     {
         static void Main()
         {
-            DllviaReflection();
+            ApiJson().Wait();
         }
 
         static void DllviaReflection()
@@ -39,5 +42,54 @@ namespace Lc.Csharp.Modulo2.Reflection
             string res = integracao.RetornarString();
             Console.WriteLine(res);
         }
+
+        static void ApiString()
+        {
+            using (var client = new WebClient())
+            {
+                var result = client.DownloadString("http://dummy.restapiexample.com/api/v1/employees"); //URI  
+
+                Console.WriteLine(Environment.NewLine + result);
+            }
+        }
+
+        static async Task ApiJson()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://dummy.restapiexample.com/");
+
+                var response = await client.GetAsync("api/v1/employees");
+
+                var data = response.Content.ReadAsStringAsync().Result;
+
+                //Console.WriteLine(data);
+
+                var result = JsonConvert.DeserializeObject<Empregados>(data);
+
+                Console.WriteLine("Status: " + result.Status);
+
+                foreach (var item in result.Data)
+                {
+                    Console.WriteLine($"{item.Employee_name}\n{item.Employee_age}\n{item.Employee_salary}\n");
+                }
+            }
+        }
+    }
+
+    public class Empregados
+    {
+        public string Status { get; set; }
+
+        public List<Empregado> Data { get; set; }
+    }
+
+    public class Empregado
+    {
+        public string Id { get; set; }
+        public string Employee_name { get; set; }
+        public string Employee_salary { get; set; }
+        public string Employee_age { get; set; }
+        public string Profile_image { get; set; }
     }
 }
