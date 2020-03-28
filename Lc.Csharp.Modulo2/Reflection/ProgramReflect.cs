@@ -13,7 +13,7 @@ namespace Lc.Csharp.Modulo2.Reflection
     {
         static void Main()
         {
-            ApiJson().Wait();
+            ApiJsonPoke().Wait();
         }
 
         static void DllviaReflection()
@@ -53,43 +53,77 @@ namespace Lc.Csharp.Modulo2.Reflection
             }
         }
 
-        static async Task ApiJson()
+        //static async Task ApiJson()
+        //{
+        //    using (var client = new HttpClient())
+        //    {
+        //        client.BaseAddress = new Uri("http://dummy.restapiexample.com/");
+
+        //        var response = await client.GetAsync("api/v1/employees");
+
+        //        var data = response.Content.ReadAsStringAsync().Result;
+
+        //        //Console.WriteLine(data);
+
+        //        var result = JsonConvert.DeserializeObject<Empregados>(data);
+
+        //        Console.WriteLine("Status: " + result.Status);
+
+        //        foreach (var item in result.Data)
+        //        {
+        //            Console.WriteLine($"{item.Employee_name}\n{item.Employee_age}\n{item.Employee_salary}\n");
+        //        }
+        //    }
+        //}
+
+        static async Task ApiJsonPoke()
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://dummy.restapiexample.com/");
+                client.BaseAddress = new Uri("https://pokeapi.co/api/v2/");
 
-                var response = await client.GetAsync("api/v1/employees");
+                var response = await client.GetAsync("pokemon/1/");
 
                 var data = response.Content.ReadAsStringAsync().Result;
 
                 //Console.WriteLine(data);
 
-                var result = JsonConvert.DeserializeObject<Empregados>(data);
+                var result = JsonConvert.DeserializeObject<Pokemon>(data);
 
-                Console.WriteLine("Status: " + result.Status);
+                Console.WriteLine("Nome: " + result.Name);
+                Console.WriteLine("Especie: " + result.Order);
+                Console.WriteLine("Peso: " + result.Weight);
 
-                foreach (var item in result.Data)
+                foreach (var item in result.Abilities)
                 {
-                    Console.WriteLine($"{item.Employee_name}\n{item.Employee_age}\n{item.Employee_salary}\n");
+                    foreach (var itemDic in item.Ability)
+                    {
+                        Console.WriteLine($"   {itemDic.Key} : {itemDic.Value}");
+                    }
+                    Console.WriteLine("Escondido: " + item.Is_hidden);
+                    Console.WriteLine("Slot: " + item.Slot);
                 }
             }
         }
     }
 
-    public class Empregados
+    public class Pokemon
     {
-        public string Status { get; set; }
+        public string Name { get; set; }
 
-        public List<Empregado> Data { get; set; }
+        public int Order { get; set; }
+
+        public int Weight { get; set; }
+
+        public List<AbilitiesPokemon> Abilities { get; set; }
     }
 
-    public class Empregado
+    public class AbilitiesPokemon
     {
-        public string Id { get; set; }
-        public string Employee_name { get; set; }
-        public string Employee_salary { get; set; }
-        public string Employee_age { get; set; }
-        public string Profile_image { get; set; }
+        public Dictionary<string, string> Ability { get; set; }
+
+        public bool Is_hidden { get; set; }
+
+        public int Slot { get; set; }
     }
 }
